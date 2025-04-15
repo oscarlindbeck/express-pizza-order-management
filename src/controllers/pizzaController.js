@@ -1,10 +1,10 @@
-import Pizza from "../models/pizzaModel.js";
+import PizzaService from "../services/pizzaService.js";
 
 class PizzaController {
     static async getAllPizzas(req, res) {
         try {
-            const listPizzas = await Pizza.find({});
-            res.status(200).json(listPizzas);
+            const pizzas = await PizzaService.getAllPizzas();
+            res.status(200).json(pizzas);
         } catch (error) {
             res.status(500).send(error.message);
         }
@@ -12,25 +12,19 @@ class PizzaController {
 
     static async getPizzaById(req, res) {
         try {
-            const pizza = await Pizza.findById(req.params.id);
-
-            if (!pizza) return res.status(404).send("Pizza não encontrada!");
-
-            return res.status(201).json(pizza);
+            const pizza = await PizzaService.getPizzaById(req.params.id);
+            res.status(200).json(pizza);
         } catch (error) {
-            res.status(500).json({ message: `Error: ${error.message}` });
+            res.status(404).json({ message: error.message });
         }
     }
 
     static async createPizza(req, res) {
         try {
-            const newPizza = new Pizza(req.body);
-
-            await newPizza.save();
-
-            return res.status(201).json({ message: "Pizza criada com sucesso!", pizza: newPizza });
+            const newPizza = await PizzaService.createPizza(req.body);
+            res.status(201).json({ message: "Pizza criada com sucesso!", pizza: newPizza });
         } catch (error) {
-            res.status(500).json({ message: `Error: ${error.message}` });
+            res.status(500).json({ message: error.message });
         }
     }
 }
