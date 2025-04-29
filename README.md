@@ -50,7 +50,7 @@ npm run dev
 ```json
 {
   "size": "extraordinary",
-  "flavours": ["Brasileira", "Angolana"]
+  "flavours": ["Frango", "Calabresa"]
 }
 ```
 
