@@ -1,6 +1,6 @@
 import { UserRepository } from '../repositories/userRepository.js';
+import { hash } from 'bcryptjs';
 
-//const { hash } = bcrypt;
 
 export class UserService{
     constructor(){
