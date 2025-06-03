@@ -1,21 +1,21 @@
-import { User } from'../models/userModel.js';
+import { user } from'../models/userModel.js';
 
 export class UserRepository{
 
     static async getAllUsers(){
-        return await User.find({});
+        return await user.find({});
     }
 
     static async findByName(name){
-        return await User.findOne({ name });
+        return await user.findOne({ name });
     }
 
-    static async create(user) {
-        const userCreated = new User(user);
+    static async create(userToCreate) {
+        const userCreated = new user(userToCreate);
         return userCreated.save();
     }
 
-    static async update(id, user) {
-        return User.findByIdAndUpdate(id, user, { new: true });
+    static async update(id, userUpdated) {
+        return user.findByIdAndUpdate(id, userUpdated, { new: true });
     }
 }
