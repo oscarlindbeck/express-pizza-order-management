@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
-import jsonSecret from '../config/jsonSecret';
+import jsonSecret from '../config/jsonSecret.js';
+
 
 export default async (req, res, next) => {
     const token = req.headers.authorization;
