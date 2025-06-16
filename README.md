@@ -1,6 +1,6 @@
 # 🍕 Pizza Order Management
 
-Sistema de gerenciamento de pedidos de pizza usando Node.js e Express.
+Sistema de gerenciamento de pedidos de pizza usando Node.js e Express. Desenvolvido por Aurélio Fadel, Gabriel Krause, Matheus Guimarães e Oscar Lindbeck.
 
 ## 🚀 Instalação
 
